@@ -3,6 +3,7 @@ class WordIdeasController < ApplicationController
     @word_ideas = WordIdea.all
     session[:random_word] = Word.sample.id
     @word = Word.find(session[:random_word])
+    @idea = Idea.last
   end
 
   def create
