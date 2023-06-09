@@ -1,0 +1,16 @@
+
+<p>ここにさっきの画面でユーザーが入力したideaのtitleを表示している</p>
+<h1><%= @idea.title %></h1>
+
+<div>ここにデータベースからランダムで取得したwordの一つを表示している</div>
+<h1><%= @word.title %></h1>
+
+<p>ここにまるボタンとばつボタンを表示する</p>
+<%= link_to "まる", word_ideas_path, data: { "turbo-method": :post } %>
+<%= link_to "ばつ", word_ideas_path %>
+
+<div>ここから下に、word_ideasの一覧を表示するよ</div>
+<div>具体的には、@word_ideasの中身から紐づいたideaとwordのtitleを表示する</div>
+<% @word_ideas.each do |w| %>
+  <h1><%= w.idea.title %> ✖️ <%= w.word.title %></h1>
+<% end %>
